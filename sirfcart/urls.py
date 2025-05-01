@@ -28,10 +28,10 @@ urlpatterns = [
     path('blog/', views.blog, name="blog"),
     path('contact/', views.contact, name="contact"),
     path('login/', views.login, name="login"),
-    path('cart/', views.cart, name="cart"),
     path('checkout/', views.checkout, name="checkout"),
     
     path('shop/', include('store.urls')),
+    path('cart/', include('cart.urls')),
 ]
 
 

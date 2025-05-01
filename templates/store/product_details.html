@@ -48,13 +48,13 @@
         {% if product.is_availabel %}
         <h6 class="text-dark">Items left: {{ product.stock }}</h6>
         <div class="d-flex gap-3 mt-4">
-            <a href="#" class="btn btn-primary">Add to Cart</a>
+            <a href="{% url 'add_cart' product.id %}" class="btn btn-primary">Add to Cart</a>
             <a href="#" class="btn btn-outline-secondary">Buy Now</a>
         </div>
         {% else %}
         <span style="color:red;">*Out of Stock</span>
         <div class="d-flex gap-3 mt-4">
-            <a href="#" class="btn btn-primary">Add to Cart</a>
+            <a href="{% url 'add_cart' product.id %}" class="btn btn-primary disabled">Add to Cart</a>
             <a href="#" class="btn btn-outline-secondary disabled">Buy Now</a>
         </div>
         {% endif %}
