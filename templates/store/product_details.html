@@ -1,0 +1,110 @@
+{% extends "sirfcart/base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- Start Hero Section -->
+<div class="hero">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-lg-5">
+                <div class="intro-excerpt">
+                    <h1>Product Details</h1>
+                    <p class="mb-4">
+                        Get a closer look at your selected product. Discover all the essential features, specifications, and styling tips to help you make the right choice. Quality, comfort, and style—all in one place.
+                    </p>
+                    <p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="hero-img-wrap">
+                    <img src="{% static 'images/styles.png' %}" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Hero Section -->
+<!-- Product Detail Section -->
+<div class="product-detail-section py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-5 mb-4 mb-md-0">
+        {% if product.image %}
+          <img src="{{ product.image.url }}" class="img-fluid rounded" style="max-height: 550px; object-fit: contain;" alt="{{ product.product_name }}">
+        {% else %}
+          <img src="{% static 'photos/products/cube.png' %}" class="img-fluid rounded" style="max-height: 450px;">
+        {% endif %}
+      </div>
+      <div class="col-md-7">
+        <h2 class="fw-bold mb-3" style="font-size: 2rem;">{{ product.product_name }}</h2>
+        <p class="fw-bold text-dark mb-3" style="font-size: 1.5rem;">Rs. {{ product.price }}</p>
+        <ul>
+          {% for point in product.description.splitlines %}
+            {% if point %}
+              <li>{{ point }}</li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+        {% if product.is_availabel %}
+        <h6 class="text-dark">Items left: {{ product.stock }}</h6>
+        <div class="d-flex gap-3 mt-4">
+            <a href="#" class="btn btn-primary">Add to Cart</a>
+            <a href="#" class="btn btn-outline-secondary">Buy Now</a>
+        </div>
+        {% else %}
+        <span style="color:red;">*Out of Stock</span>
+        <div class="d-flex gap-3 mt-4">
+            <a href="#" class="btn btn-primary">Add to Cart</a>
+            <a href="#" class="btn btn-outline-secondary disabled">Buy Now</a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- You May Also Like Section -->
+<div class="popular-product mt-5">
+  <div class="container">
+    <div class="row mb-4">
+      <div class="col-12">
+        <h3 class="section-title">You May Also Like</h3>
+      </div>
+    </div>
+    <div class="row">
+      {% for item in related_products %}
+        {% if item.id != product.id %}
+        <div class="col-12 col-md-4 col-lg-3 mb-4">
+          <a class="product-item" href="{{ item.get_url }}">
+            {% if item.image %}
+              <img src="{{ item.image.url }}" class="img-fluid product-thumbnail" style="height: 300px; width: 100%;object-fit: contain;" alt="{{ item.product_name }}">
+            {% else %}
+              <img src="{% static 'photos/products/cube.png' %}" class="img-fluid product-thumbnail">
+            {% endif %}
+            <h6 class="product-title mt-2 text-center">
+                {{ item.product_name }}
+            </h6>
+            <p class="text-center">
+                <strong class="product-price">Rs. {{ item.price }}</strong>
+            </p>
+          </a>
+        </div>
+        {% endif %}
+      {% empty %}
+        <p class="text-muted">No related products found.</p>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+    .product-title {
+        word-wrap: break-word;
+        white-space: normal;
+        overflow-wrap: break-word;
+        font-weight: bold;
+        font-size: 1.2em;
+    }    
+</style>
+
+{% endblock %}

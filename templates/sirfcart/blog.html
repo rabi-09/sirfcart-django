@@ -1,0 +1,198 @@
+{% extends "sirfcart/base.html" %}
+{% load static %}
+{% block content %}
+
+<!-- Start Hero Section -->
+<div class="hero">
+	<div class="container">
+		<div class="row justify-content-between">
+			<div class="col-lg-5">
+				<div class="intro-excerpt">
+					<h1>Blog</h1>
+					<p class="mb-4">Welcome to our blog! Here, we share the latest trends, tips, and insights on fashion, style, and lifestyle. Stay tuned for expert advice, product reviews, and exciting updates to help you stay ahead of the curve in the world of fashion.</p>
+
+					<p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
+				</div>
+			</div>
+			<div class="col-lg-7">
+				<div class="hero-img-wrap">
+					<img src="{% static 'images/styles.png' %}" class="img-fluid">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Hero Section -->
+
+<!-- Start Blog Section -->
+<div class="blog-section">
+	<div class="container">
+		<div class="row">
+
+			<!-- Repeat blocks with dynamic image paths -->
+			<div class="col-12 col-sm-6 col-md-4 mb-5">
+				<div class="post-entry">
+					<a href="#" class="post-thumbnail"><img src="{% static 'images/post-1.jpg' %}" alt="Image" class="img-fluid"></a>
+					<div class="post-content-entry">
+						<h3><a href="#">First Time Home Owner Ideas</a></h3>
+						<div class="meta">
+							<span>by <a href="#">Kristin Watson</a></span> <span>on <a href="#">Dec 19, 2021</a></span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Repeat similar changes for all post images -->
+			<div class="col-12 col-sm-6 col-md-4 mb-5">
+				<div class="post-entry">
+					<a href="#" class="post-thumbnail"><img src="{% static 'images/post-2.jpg' %}" alt="Image" class="img-fluid"></a>
+					<div class="post-content-entry">
+						<h3><a href="#">How To Keep Your Furniture Clean</a></h3>
+						<div class="meta">
+							<span>by <a href="#">Robert Fox</a></span> <span>on <a href="#">Dec 15, 2021</a></span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
+				<div class="post-entry">
+					<a href="#" class="post-thumbnail"><img src="{% static "images/post-3.jpg" %}" alt="Image" class="img-fluid"></a>
+					<div class="post-content-entry">
+						<h3><a href="#">Small Space Furniture Apartment Ideas</a></h3>
+						<div class="meta">
+							<span>by <a href="#">Kristin Watson</a></span> <span>on <a href="#">Dec 12, 2021</a></span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- And so on for all post-3.jpg, etc... -->
+
+		</div>
+	</div>
+</div>
+<!-- End Blog Section -->	
+
+<!-- Start Testimonial Slider -->
+<div class="testimonial-section before-footer-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 mx-auto text-center">
+                <h2 class="section-title">Testimonials</h2>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="testimonial-slider-wrap text-center">
+
+                    <div id="testimonial-nav">
+                        <span class="prev" data-controls="prev"><span class="fa fa-chevron-left"></span></span>
+                        <span class="next" data-controls="next"><span class="fa fa-chevron-right"></span></span>
+                    </div>
+
+                    <div class="testimonial-slider">
+                        
+                        <div class="item">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 mx-auto">
+
+                                    <div class="testimonial-block text-center">
+                                        <blockquote class="mb-5">
+                                            <p>&ldquo;I am absolutely in love with the fashion collection! The quality of the fabrics is unmatched, and the designs are perfect for every occasion. I found the perfect outfit for a wedding, and it fit like a glove. Highly recommend this store for anyone looking for top-notch fashion!&rdquo;</p>
+                                        </blockquote>
+
+                                        <div class="author-info">
+                                            <div class="author-pic">
+                                                <img src="{% static 'images/person-1.png' %}" alt="Aarti Patel" class="img-fluid">
+                                            </div>
+                                            <h3 class="font-weight-bold">Aarti Patel</h3>
+                                            <span class="position d-block mb-3">Fashion Blogger, Mumbai</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END item -->
+
+                        <div class="item">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 mx-auto">
+
+                                    <div class="testimonial-block text-center">
+                                        <blockquote class="mb-5">
+                                            <p>&ldquo;The best online store for trendy fashion! I bought a beautiful saree for my sister’s wedding, and the compliments didn’t stop. The fabric was premium, and the color was even more vibrant than in the pictures. Definitely going to shop here again!&rdquo;</p>
+                                        </blockquote>
+
+                                        <div class="author-info">
+                                            <div class="author-pic">
+                                                <img src="{% static 'images/person-1.png' %}" alt="Ravi Kumar" class="img-fluid">
+                                            </div>
+                                            <h3 class="font-weight-bold">Ravi Kumar</h3>
+                                            <span class="position d-block mb-3">Entrepreneur, Delhi</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END item -->
+
+                        <div class="item">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 mx-auto">
+
+                                    <div class="testimonial-block text-center">
+                                        <blockquote class="mb-5">
+                                            <p>&ldquo;I have always struggled to find stylish yet comfortable clothes for my daily wear, but this store has changed that for me. From casual wear to semi-formal, every piece I've bought has been both chic and comfortable. Totally worth every penny!&rdquo;</p>
+                                        </blockquote>
+
+                                        <div class="author-info">
+                                            <div class="author-pic">
+                                                <img src="{% static 'images/person-1.png' %}" alt="Neha Sharma" class="img-fluid">
+                                            </div>
+                                            <h3 class="font-weight-bold">Neha Sharma</h3>
+                                            <span class="position d-block mb-3">Fashion Enthusiast, Bangalore</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END item -->
+
+                        <div class="item">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 mx-auto">
+
+                                    <div class="testimonial-block text-center">
+                                        <blockquote class="mb-5">
+                                            <p>&ldquo;I was looking for the perfect outfit for a family event, and I found it here! The lehenga I ordered arrived on time and was more beautiful than I could have imagined. The fit was perfect, and the quality was amazing. I’m definitely coming back for more!&rdquo;</p>
+                                        </blockquote>
+
+                                        <div class="author-info">
+                                            <div class="author-pic">
+                                                <img src="{% static 'images/person-1.png' %}" alt="Priya Mehta" class="img-fluid">
+                                            </div>
+                                            <h3 class="font-weight-bold">Priya Mehta</h3>
+                                            <span class="position d-block mb-3">Interior Designer, Ahmedabad</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END item -->
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Testimonial Slider -->
+
+{% endblock %}

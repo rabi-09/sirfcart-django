@@ -1,0 +1,101 @@
+{% extends "sirfcart/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- Start Hero Section -->
+<div class="hero">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-lg-5">
+                <div class="intro-excerpt">
+                    <h1>Login to Your Account</h1>
+                    <p class="mb-4">Welcome back! Enter your credentials to access your account.</p>
+
+                    <p><a href="{% url 'shop' %}" class="btn btn-secondary me-2">Shop Now</a><a href="{% url 'shop' %}" class="btn btn-white-outline">Explore</a></p>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="hero-img-wrap">
+                    <img src="{% static 'images/styles.png' %}" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Hero Section -->
+
+
+<!-- Start Contact Form -->
+<div class="untree_co-section">
+    <div class="container">
+
+        <div class="block">
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-8 col-lg-8">
+                    <h2 class="text-dark mb-4 mt-0">Register Yourself</h2>
+                    <form>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label class="text-black" for="fname">First name</label>
+                                    <input type="text" class="form-control" id="fname">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label class="text-black" for="lname">Last name</label>
+                                    <input type="text" class="form-control" id="lname">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label class="text-black" for="phone">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label class="text-black" for="email">Email Address</label>
+                                    <input type="email" class="form-control" id="email">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label class="text-black" for="password">Password</label>
+                                    <input type="password" class="form-control" id="password">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label class="text-black" for="password">Confirm Password</label>
+                                    <input type="password" class="form-control" id="cnf-password">
+                                </div>
+                            </div>
+                        </div>
+                       <div class="form-group mb-5">
+                            <label class="text-black" for="message">Address</label>
+                            <textarea name="address" class="form-control" id="message" cols="30" rows="3"></textarea>
+                        </div>
+                        <div class="row">
+                            <button type="submit" class="btn btn-primary-hover-outline">Register</button>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+<!-- End Contact Form -->
+
+{% endblock %}

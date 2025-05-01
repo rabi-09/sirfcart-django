@@ -1,0 +1,131 @@
+{% extends "sirfcart/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- Start Hero Section -->
+<div class="hero">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-lg-5">
+                <div class="intro-excerpt">
+                    <h1>Shop Our Collection</h1>
+                    <p class="mb-4">Welcome to our online store! Explore our wide range of high-quality fashion products designed to elevate your style. Whether you're looking for the latest trends or timeless classics, you'll find the perfect pieces here. Happy shopping!</p>
+
+
+                    <p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="hero-img-wrap">
+                    <img src="{% static 'images/styles.png' %}" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Hero Section -->
+
+<!-- Start Product + Filter Section -->
+<div class="untree_co-section product-section before-footer-section">
+    <div class="container">
+        <div class="row">
+            
+           <!-- Filter Sidebar -->
+        <div class="col-md-3">
+            <div id="filter-sidebar">
+                <h5 class="filter-title">Filter Products</h5>
+                <form method="get" action="">
+                    <!-- Price Range Filter (Inputs for Min and Max Prices) -->
+                        <div class="mb-4">
+                            <label class="form-label">Price Range</label>
+                                <div class="d-flex">
+                                    <!-- Min Price Input -->
+                                    <div class="input-group me-1">
+                                        <input type="number" name="min_price" class="form-control" placeholder="Min Price"
+                                            min="0" max="10000000" value="{{ request.GET.min_price|default:0 }}" step="100">
+                                    </div>
+                                    <!-- Max Price Input -->
+                                    <div class="input-group">
+                                        <input type="number" name="max_price" class="form-control" placeholder="Max Price"
+                                            min="0" max="10000000" value="{{ request.GET.max_price|default:100000 }}" step="100">
+                                    </div>
+                                </div>
+                        </div>
+                        <!-- Category Select -->
+                        <div class="mb-4">
+                            <label for="category-select" class="form-label">Category</label>
+                            <select class="form-select" id="category-select" name="category">
+                                <option value="">-- Select Category --</option>
+                                <option value="shirt">Shirt</option>
+                                <option value="jeans">Jeans</option>
+                                <option value="jackets">Jackets</option>
+                                <option value="shoes">Shoes</option>
+                                <option value="accessories">Accessories</option>
+                            </select>
+                        </div>
+
+                        <!-- Rating -->
+                        <div class="mb-4">
+                            <label for="rating-select" class="form-label">Rating</label>
+                            <select class="form-select" id="rating-select" name="rating">
+                                <option value="">-- Select Rating --</option>
+                                <option value="5">★★★★★ & up</option>
+                                <option value="4">★★★★☆ & up</option>
+                                <option value="3">★★★☆☆ & up</option>
+                                <option value="2">★★☆☆☆ & up</option>
+                                <option value="1">★☆☆☆☆ & up</option>
+                            </select>
+                        </div>
+
+                        <!-- Sort By -->
+                        <div class="mb-4">
+                            <label for="sort-select" class="form-label">Sort By</label>
+                            <select class="form-select" id="sort-select" name="sort">
+                                <option value="">-- Sort --</option>
+                                <option value="low-high">Price: Low to High</option>
+                                <option value="high-low">Price: High to Low</option>
+                                <option value="latest">Latest</option>
+                                <option value="popular">Most Popular</option>
+                            </select>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="gap-2">
+                            <button type="submit" class="btn btn-primary btn-sm" >Apply Filters</button>
+                            <a href="{% url 'shop' %}" class="btn btn-outline-secondary btn-sm" >Reset</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="col-md-9">
+                <div class="row" id="product-grid">
+                    {% for product in products %}
+                        <div class="col-6 col-md-4 col-lg-3 mb-4">
+                            <a class="product-item smaller-card" href="{{ product.get_url }}">
+                                {% if product.image %}
+                                    <img src="{{ product.image.url }}" class="img-fluid product-thumbnail" style="height:250px;">
+                                {% else %}
+                                    <img src="{% static 'photos/products/cube.png' %}" class="img-fluid product-thumbnail">
+                                {% endif %}
+                                <h3 class="product-title">{{ product.product_name }}</h3>
+                                <strong class="product-price">Rs. {{ product.price }}</strong>
+                                <p>{{ product.description|slice:":80" }}...</p>
+                                <span class="icon-cross">
+                                    <img src="{% static 'images/cross.svg' %}" class="img-fluid">
+                                </span>
+                            </a>
+                        </div> 
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End Product + Filter Section -->
+
+
+{% endblock %}

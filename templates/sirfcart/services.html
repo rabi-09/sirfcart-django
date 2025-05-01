@@ -1,0 +1,211 @@
+{% extends "sirfcart/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- Start Hero Section -->
+<div class="hero">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-lg-5">
+                <div class="intro-excerpt">
+                    <h1>Our Services</h1>
+                    <p class="mb-4">Explore our curated collection of fashion trends, crafted with the finest materials to ensure style and comfort. Our services are designed to make your shopping experience effortless and enjoyable.</p>
+                    <p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="hero-img-wrap">
+                    <img src="{% static 'images/styles.png' %}" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Hero Section -->
+
+<!-- Start Why Choose Us Section -->
+<div class="why-choose-section">
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-6 col-md-6 col-lg-3 mb-4">
+                <div class="feature">
+                    <div class="icon">
+                        <img src="{% static 'images/truck.svg' %}" alt="Image" class="imf-fluid">
+                    </div>
+                    <h3>Fast &amp; Free Shipping</h3>
+                    <p>Get your fashion pieces delivered to your doorstep with quick and free shipping, ensuring a seamless experience from cart to closet.</p>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-6 col-lg-3 mb-4">
+                <div class="feature">
+                    <div class="icon">
+                        <img src="{% static 'images/bag.svg' %}" alt="Image" class="imf-fluid">
+                    </div>
+                    <h3>Easy Shopping</h3>
+                    <p>Browse effortlessly through our extensive collection of trendy clothing and accessories, all while enjoying a smooth shopping experience.</p>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-6 col-lg-3 mb-4">
+                <div class="feature">
+                    <div class="icon">
+                        <img src="{% static 'images/support.svg' %}" alt="Image" class="imf-fluid">
+                    </div>
+                    <h3>24/7 Customer Support</h3>
+                    <p>Our customer support team is always ready to assist you with any questions or concerns, ensuring your satisfaction at every step.</p>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-6 col-lg-3 mb-4">
+                <div class="feature">
+                    <div class="icon">
+                        <img src="{% static 'images/return.svg' %}" alt="Image" class="imf-fluid">
+                    </div>
+                    <h3>Easy Returns</h3>
+                    <p>Changed your mind? No worries! We offer hassle-free returns, so you can shop with confidence and peace of mind.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End Why Choose Us Section -->
+
+<!-- Start Product Section -->
+<div class="product-section pt-0">
+    <div class="container">
+        <div class="row">
+
+            <!-- Start Column 1 -->
+            <div class="col-md-12 col-lg-3 mb-5 mb-lg-0">
+                <h2 class="mb-4 section-title">Crafted with Excellent Materials</h2>
+                <p class="mb-4">Discover our fashion pieces made with top-quality fabrics, designed to provide the perfect blend of comfort and style.</p>
+                <p><a href="#" class="btn">Explore Now</a></p>
+            </div>
+            <!-- End Column 1 -->
+
+            {% for product in products %}
+                <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+                    <a class="product-item" href="#">
+                        {% if product.image %}
+                            <img src="{{ product.image.url }}" class="img-fluid product-thumbnail" style="height:450px;">
+                        {% else %}
+                            <img src="{% static 'photos/products/cube.png' %}" class="img-fluid product-thumbnail">
+                        {% endif %}
+                        <h3 class="product-title">{{ product.product_name }}</h3>
+                        <strong class="product-price">Rs. {{ product.price }}</strong>
+                        <p>{{ product.description|slice:":100" }}...</p>
+                        
+                        <span class="icon-cross">
+                            <img src="{% static 'images/cross.svg' %}" class="img-fluid">
+                        </span>
+                    </a>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+<!-- End Product Section -->
+
+<!-- Start Testimonial Slider -->
+<div class="testimonial-section before-footer-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 mx-auto text-center">
+                <h2 class="section-title">Customer Testimonials</h2>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="testimonial-slider-wrap text-center">
+
+                    <div id="testimonial-nav">
+                        <span class="prev" data-controls="prev"><span class="fa fa-chevron-left"></span></span>
+                        <span class="next" data-controls="next"><span class="fa fa-chevron-right"></span></span>
+                    </div>
+
+                    <div class="testimonial-slider">
+                        
+                        <div class="item">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 mx-auto">
+
+                                    <div class="testimonial-block text-center">
+                                        <blockquote class="mb-5">
+                                            <p>&ldquo;I am absolutely in love with the fashion collection! The quality of the fabrics is unmatched, and the designs are perfect for every occasion. I found the perfect outfit for a wedding, and it fit like a glove. Highly recommend this store for anyone looking for top-notch fashion!&rdquo;</p>
+                                        </blockquote>
+
+                                        <div class="author-info">
+                                            <div class="author-pic">
+                                                <img src="{% static 'images/person-1.png' %}" alt="Aarti Patel" class="img-fluid">
+                                            </div>
+                                            <h3 class="font-weight-bold">Aarti Patel</h3>
+                                            <span class="position d-block mb-3">Fashion Blogger, Mumbai</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END item -->
+
+                        <div class="item">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 mx-auto">
+
+                                    <div class="testimonial-block text-center">
+                                        <blockquote class="mb-5">
+                                            <p>&ldquo;The best online store for trendy fashion! I bought a beautiful saree for my sister’s wedding, and the compliments didn’t stop. The fabric was premium, and the color was even more vibrant than in the pictures. Definitely going to shop here again!&rdquo;</p>
+                                        </blockquote>
+
+                                        <div class="author-info">
+                                            <div class="author-pic">
+                                                <img src="{% static 'images/person-1.png' %}" alt="Ravi Kumar" class="img-fluid">
+                                            </div>
+                                            <h3 class="font-weight-bold">Ravi Kumar</h3>
+                                            <span class="position d-block mb-3">Entrepreneur, Delhi</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END item -->
+
+                        <div class="item">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 mx-auto">
+
+                                    <div class="testimonial-block text-center">
+                                        <blockquote class="mb-5">
+                                            <p>&ldquo;I have always struggled to find stylish yet comfortable clothes for my daily wear, but this store has changed that for me. From casual wear to semi-formal, every piece I've bought has been both chic and comfortable. Totally worth every penny!&rdquo;</p>
+                                        </blockquote>
+
+                                        <div class="author-info">
+                                            <div class="author-pic">
+                                                <img src="{% static 'images/person-1.png' %}" alt="Neha Sharma" class="img-fluid">
+                                            </div>
+                                            <h3 class="font-weight-bold">Neha Sharma</h3>
+                                            <span class="position d-block mb-3">Fashion Enthusiast, Bangalore</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END item -->
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Testimonial Slider -->
+
+{% endblock %}
