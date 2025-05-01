@@ -28,6 +28,6 @@ This project was built as part of my journey to learn **Python** and **Django** 
 - **Frontend:** HTML5, CSS3, JavaScript
 - **Backend:** Django (Python)
 - **Database:** SQLite (default with Django)
-- **Others:** Bootstrap (optional), Django Admin, Templates, Static Files
+- **Others:** Bootstrap, Django Admin, Templates, Static Files
 
 ---
