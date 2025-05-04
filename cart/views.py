@@ -54,8 +54,8 @@ def decrease_cart(request, product_id):
 
 def cart(request, total=0, quantity=0, cart_items = None):
     
-    cart = Cart.objects.get(cart_id = _cart_id(request))
-    cart_items = CartItem.objects.filter(cart_id =cart, is_active=True)
+    cart = Cart.objects.filter(cart_id = _cart_id(request))
+    cart_items = CartItem.objects.filter(cart_id =cart.first(), is_active=True) if cart else []
     for cart_item in cart_items:
         total += (cart_item.product.price * cart_item.quantity)+0.0
         quantity = cart_item.quantity

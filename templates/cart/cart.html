@@ -49,15 +49,19 @@
                             <tr>
                               <td class="product-thumbnail">
                                 {% if item.product.image %}
+                                <a href="{{ item.product.get_url }}" style="text-decoration:none;">
                                   <img src="{{ item.product.image.url }}" class="img-fluid rounded-circle" alt="{{ item.product.product_name }}" style="width: 70px; height: 70px; object-fit: cover;">
+                                </a>
                                 {% else %}
-                                  <img src="{% static 'photos/products/cube.png' %}" class="img-fluid rounded-circle" alt="Image" style="width: 70px; height: 70px; object-fit: cover;">
+                                <img src="{% static 'photos/products/cube.png' %}" class="img-fluid rounded-circle" alt="Image" style="width: 70px; height: 70px; object-fit: cover;">
                                 {% endif %}
                               </td>
                               
                               <td class="product-name">
-                                <h2 class="h5 text-black">{{ item.product.product_name }}</h2>
-                              </td>
+                                  <a href="{{ item.product.get_url }}" style="text-decoration:none;">
+                                    <h2 class="h5 text-black">{{ item.product.product_name }}</h2>
+                                  </a>
+                                </td>
                               <td class="text-black">{{ item.product.price }}</td>
                               <td>
                                 <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">

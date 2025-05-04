@@ -46,17 +46,25 @@
           {% endfor %}
         </ul>
         {% if product.is_availabel %}
-        <h6 class="text-dark">Items left: {{ product.stock }}</h6>
-        <div class="d-flex gap-3 mt-4">
-            <a href="{% url 'add_cart' product.id %}" class="btn btn-primary">Add to Cart</a>
-            <a href="#" class="btn btn-outline-secondary">Buy Now</a>
-        </div>
+          <h6 class="text-dark">Items left: {{ product.stock }}</h6>
+          {% if is_exists %}
+            <div class="d-flex gap-3 mt-4">
+              <a href="#" class="btn btn-success disabled">Added to Cart <i class="fas fa-check"></i></a>
+              <a href="{% url 'cart' %}" class="btn btn-outline-secondary">View Cart <i class="fas fa-eye"></i></a>
+            </div>
+          {% else %}
+            <div class="d-flex gap-3 mt-4">
+              <a href="{% url 'add_cart' product.id %}" class="btn btn-primary">Add to Cart <i class="fas fa-cart-shopping"></i></a>
+              <a href="#" class="btn btn-outline-secondary">Buy Now <i class="fas fa-bag-shopping"></i></a>
+            </div>
+          {% endif %}
+          {% comment %} out of stock  {% endcomment %}
         {% else %}
-        <span style="color:red;">*Out of Stock</span>
-        <div class="d-flex gap-3 mt-4">
-            <a href="{% url 'add_cart' product.id %}" class="btn btn-primary disabled">Add to Cart</a>
-            <a href="#" class="btn btn-outline-secondary disabled">Buy Now</a>
-        </div>
+          <span style="color:red;">*Out of Stock</span>
+          <div class="d-flex gap-3 mt-4">
+              <a href="{% url 'add_cart' product.id %}" class="btn btn-primary disabled">Add to Cart</a>
+              <a href="#" class="btn btn-outline-secondary disabled">Buy Now</a>
+          </div>
         {% endif %}
       </div>
     </div>
