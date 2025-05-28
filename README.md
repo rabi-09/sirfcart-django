@@ -2,6 +2,10 @@
 
 **SirfCart** is a fully functional eCommerce website built using **Django**, **HTML**, **CSS**, and **JavaScript**. This project includes product listings, user authentication, cart functionality, and order management.
 
+## 🔗 Live Demo
+
+Check out the live version here:  
+👉 <a href="https://sirfcart.pythonanywhere.com/" target="_blank">Visit Site Here</a>
 ---
 
 ## 🚀 Features
